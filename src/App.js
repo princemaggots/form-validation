@@ -12,6 +12,7 @@ const App = ({ data, onUpdate }) => {
 
   const callbackName = useUpdated('Name', onUpdate);
   const [nameValid, validateName] = useValidate(nameValidator);
+  const [fandomValid, validateFandom] = useValidate(nameValidator);
 
   return (
     <div className="page">
@@ -43,8 +44,10 @@ const App = ({ data, onUpdate }) => {
       <h2> Basics</h2>
            {nameValid === 'invalid' && (
              <React.Fragment>
+               <i className="fas fa-exclamation-triangle"></i>
+               <div className="validator-msg"> Character name can only include letters, numbers, and spaces. </div>
+               </React.Fragment>
            )}
-      </React.Fragment>
       <InputField 
         label="Character Name"
         maxLength="100"
@@ -53,9 +56,12 @@ const App = ({ data, onUpdate }) => {
         onChange={callbackName}
         onBlur={validateName}
         />
-          <React.Fragment>
-           {/* add valid info here */}
-      </React.Fragment>
+          {fandomValid === 'invalid' && (
+             <React.Fragment>
+               <i className="fas fa-exclamation-triangle"></i>
+               <div className="validator-msg"> Character name can only include letters, numbers, and spaces. </div>
+               </React.Fragment>
+           )}
       <InputField 
         label="Fandom"
         maxLength="100"
@@ -90,10 +96,8 @@ const App = ({ data, onUpdate }) => {
         // onBlur={validateName}
         />
       
-      <React.Fragment>
         <h2>Additional Information</h2>
            {/* make Open */}
-      </React.Fragment>
       <InputField 
         // Date!! change type
         label="Birthdate"
@@ -112,6 +116,7 @@ const App = ({ data, onUpdate }) => {
 
       
     </div>
+    </React.Fragment>
     </div>
   );
   }

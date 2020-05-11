@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -11,7 +14,8 @@
     "react-dnd-html5-backend": "^10.0.2",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.0",
-    "react-tag-input": "^6.4.2"
+    "react-tag-input": "^6.4.2",
+    "react-uuid": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,5 +37,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.0.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-vue": "^6.2.2"
   }
 }
