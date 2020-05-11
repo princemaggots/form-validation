@@ -6,13 +6,14 @@ import { get } from 'lodash';
 import useUpdated from './hooks/useUpdated.js';
 import useValidate from './hooks/useValidate.js';
 import nameValidator from './validators/nameValidator.js';
+import fanValidator from './validators/fanValidator.js';
 
 
 const App = ({ data, onUpdate }) => {
 
   const callbackName = useUpdated('Name', onUpdate);
   const [nameValid, validateName] = useValidate(nameValidator);
-  const [fandomValid, validateFandom] = useValidate(nameValidator);
+  const [fandomValid, validateFandom] = useValidate(fanValidator);
 
   return (
     <div className="page">
@@ -40,7 +41,6 @@ const App = ({ data, onUpdate }) => {
       </div> 
     </div>
     <div className="App">
-      <React.Fragment>
       <h2> Basics</h2>
            {nameValid === 'invalid' && (
              <React.Fragment>
@@ -48,7 +48,7 @@ const App = ({ data, onUpdate }) => {
                <div className="validator-msg"> Character name can only include letters, numbers, and spaces. </div>
                </React.Fragment>
            )}
-      <InputField 
+      <InputField
         label="Character Name"
         maxLength="100"
         placeholder="required"
@@ -59,7 +59,7 @@ const App = ({ data, onUpdate }) => {
           {fandomValid === 'invalid' && (
              <React.Fragment>
                <i className="fas fa-exclamation-triangle"></i>
-               <div className="validator-msg"> Character name can only include letters, numbers, and spaces. </div>
+               <div className="validator-msg"> Fandom titles cannot include special characters (aside from "()" and puncuation)</div>
                </React.Fragment>
            )}
       <InputField 
@@ -111,14 +111,20 @@ const App = ({ data, onUpdate }) => {
       
 
 
-
-
-
       
     </div>
-    </React.Fragment>
     </div>
   );
-  }
+  };
+
+App.propTypes = {
+  onUpdate: PropTypes.func.isRequired,
+  data: PropTypes.exact({
+    Name: PropTypes.string,
+    Fandom: PropTypes.string,
+    Category: PropTypes.string,
+    Description: PropTypes.string,
+  }).isRequired,
+};
 
 export default App;
