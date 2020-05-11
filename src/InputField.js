@@ -21,4 +21,18 @@ const InputField = ({ maxLength, placeholder, label, value, type, onChange, onBl
     );
 };
 
-InputField.proptypes 
+InputField.propTypes = {
+    maxLength: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    type: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+}
+
+InputField.defaultProps = {
+    value: '',
+    type: 'text',
+};
+
+export default InputField;
