@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react';
 
-const useUpdateArray = (list, name, onUpdate) => [
+
+const useUpdateArray = (list, name, onUpdate, ) => [
   useCallback(() => {
     onUpdate(name, [...list || {}]);
   }, [onUpdate, list]),
@@ -24,7 +25,7 @@ const useUpdateArray = (list, name, onUpdate) => [
   ]),
   useCallback(
     item => {
-      onUpdate(name, [...list, item || {}]);
+      onUpdate(name, [...list, item ||  {}]);
     },
     [onUpdate, list],
   ),

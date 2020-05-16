@@ -18,10 +18,10 @@ class Form extends React.Component {
        this.previous = this.previous.bind(this);
    }
 
-  onUpdate = (field, value) => {
-    const { charData: oldcharData } = this.state;
+   onUpdate = (field, value) => {
+    const { charData: oldCharData } = this.state;
     const charData = {
-      ...oldcharData,
+      ...oldCharData,
       [field]: value,
     };
     localStorage.setItem('charData', JSON.stringify(charData));
@@ -92,17 +92,17 @@ class Form extends React.Component {
     return (
       <div className="page">
         <CurrentPage
-          charData={charData}
-          data={charData}
-          onNext={this.next}
-          // onPrevious={this.previous}
-          // onJump={this.jump}
-          // onImport={this.import}
-          // onExport={LifeDocsOrder.export}
-          onSend={this.send}
-          onClose={this.update}
-          onUpdate={this.onUpdate}
-          onClear={this.onClear}
+         charData={charData}
+         data={charData}
+         onNext={this.next}
+         onPrevious={this.previous}
+        //  onJump={this.jump}
+        //  onImport={this.import}
+        //  onExport={LifeDocsOrder.export}
+        //  onSend={LifeDocsOrder.send}
+         onClose={this.update}
+         onUpdate={this.onUpdate}
+         onClear={this.onClear}
         />
       </div>
     );

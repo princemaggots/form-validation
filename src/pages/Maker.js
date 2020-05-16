@@ -42,20 +42,23 @@ const Maker = ({ data, onNext, onUpdate }) => {
   );
   };
 
-Maker.propTypes = {
-  onUpdate: PropTypes.func.isRequired,
-  data: PropTypes.exact({
-    Name: PropTypes.string,
-    Fandom: PropTypes.string,
-    Category: PropTypes.string,
-    Description: PropTypes.string,
-  }).isRequired,
-  onNext: PropTypes.func,
-};
-
-Maker.defaultProps = {
-  onNext: () => {},
-  data: null,
-};
+  Maker.propTypes = {
+    onUpdate: PropTypes.func.isRequired,
+    onNext: PropTypes.func,
+    // onImport: PropTypes.func,
+    // onExport: PropTypes.func,
+    // onClear: PropTypes.func,
+    // eslint-disable-next-line react/forbid-prop-types
+    data: PropTypes.object,
+  };
+  
+  // Default values for props
+  Maker.defaultProps = {
+    onNext: () => {},
+    // onImport: () => {},
+    // onClear: () => {},
+    // onExport: () => {},
+    data: null,
+  };
 
 export default Maker;
