@@ -9,13 +9,19 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "defaults": "^1.0.3",
     "react": "^16.13.1",
+    "react-datepicker": "^2.16.0",
     "react-dnd": "^10.0.2",
     "react-dnd-html5-backend": "^10.0.2",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
-    "react-tag-input": "^6.4.2",
-    "react-uuid": "^1.0.2"
+    "react-select": "^3.1.0",
+    "react-uuid": "^1.0.2",
+    "typescript": "^2.8.0-dev.20180227",
+    "validate-npm-package-name": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,8 +45,6 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.0.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-flowtype": "^4.7.0",
     "eslint-plugin-vue": "^6.2.2"

@@ -1,130 +1,43 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import InputField from'./InputField.js';
-import { get } from 'lodash';
-import useUpdated from './hooks/useUpdated.js';
-import useValidate from './hooks/useValidate.js';
-import nameValidator from './validators/nameValidator.js';
-import fanValidator from './validators/fanValidator.js';
+import Form from './pages/Form.js';
 
+const Header = () => (
+  <div className="header">
 
-const App = ({ data, onUpdate }) => {
+  <div className="logo">
+  <h1> Bare Bones</h1>
+  </div>
 
-  const callbackName = useUpdated('Name', onUpdate);
-  const [nameValid, validateName] = useValidate(nameValidator);
-  const [fandomValid, validateFandom] = useValidate(fanValidator);
-
-  return (
-    <div className="page">
-    <div className="header">
-
-      <div className="logo">
-      <h1> Bare Bones</h1>
+   <div className="nav">
+      <div className="support">
+      <a href="/">donate</a>
       </div>
-
-       <div className="nav">
-          <div className="support">
-          <a href="#">donate</a>
-          </div>
-          <div className="post">
-            <a href="#">post</a>
-          </div> 
-          <div className="profile">
-              <div className="proimg">
-              <img src="https://via.placeholder.com/30"></img>
-              </div>  
-              <div className="txt">
-              <p> Profile </p>
-            </div>
-          </div>
+      <div className="post">
+        <a href="/">post</a>
       </div> 
+      <div className="profile">
+          <div className="proimg">
+          <img src="https://via.placeholder.com/30" alt="profile"></img>
+          </div>  
+          <div className="txt">
+          <p> Profile </p>
+        </div>
+      </div>
+  </div> 
+</div>
+);
+  
+
+const App = () => (
+  <Router>
+    <div>
+      <Route component={Header} />
+
+      <Route component={Form} />
     </div>
-    <div className="App">
-      <h2> Basics</h2>
-           {nameValid === 'invalid' && (
-             <React.Fragment>
-               <i className="fas fa-exclamation-triangle"></i>
-               <div className="validator-msg"> Character name can only include letters, numbers, and spaces. </div>
-               </React.Fragment>
-           )}
-      <InputField
-        label="Character Name"
-        maxLength="100"
-        placeholder="required"
-        value={get(data, 'Name')}
-        onChange={callbackName}
-        onBlur={validateName}
-        />
-          {fandomValid === 'invalid' && (
-             <React.Fragment>
-               <i className="fas fa-exclamation-triangle"></i>
-               <div className="validator-msg"> Fandom titles cannot include special characters (aside from "()" and puncuation)</div>
-               </React.Fragment>
-           )}
-      <InputField 
-        label="Fandom"
-        maxLength="100"
-        placeholder="required"
-        required
-        // value={get(data, 'Name')}
-        // onChange={callbackName}
-        // onBlur={validateName}
-        />
-
-      {/*is a dropdown menu, change later*/}
-      <InputField 
-        label="Category"
-        maxLength="100"
-        placeholder=""
-        required
-        // value={get(data, 'Name')}
-        // onChange={callbackName}
-        // onBlur={validateName}
-        />
-
-      {/*add tag field here*/}
-
-      {/*make own for longer*/}
-      <InputField 
-        label="Description"
-        maxLength="1025"
-        placeholder="required"
-        required
-        // value={get(data, 'Name')}
-        // onChange={callbackName}
-        // onBlur={validateName}
-        />
-      
-        <h2>Additional Information</h2>
-           {/* make Open */}
-      <InputField 
-        // Date!! change type
-        label="Birthdate"
-        maxLength="100"
-        placeholder="required"
-        required
-        // value={get(data, 'Name')}
-        // onChange={callbackName}
-        // onBlur={validateName}
-        />
-      
-
-
-      
-    </div>
-    </div>
-  );
-  };
-
-App.propTypes = {
-  onUpdate: PropTypes.func.isRequired,
-  data: PropTypes.exact({
-    Name: PropTypes.string,
-    Fandom: PropTypes.string,
-    Category: PropTypes.string,
-    Description: PropTypes.string,
-  }).isRequired,
-};
+  </Router>
+);
 
 export default App;

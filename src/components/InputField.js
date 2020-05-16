@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
 
-const InputField = ({ maxLength, placeholder, label, value, type, onChange, onBlur = () => {} }) => {
+const InputField = ({ maxLength, placeholder, label, value, onChange, type, onBlur = () => {} }) => {
     const id = useMemo(() => uuid());
     return (
         <div>
@@ -28,7 +28,7 @@ InputField.propTypes = {
     value: PropTypes.string,
     type: PropTypes.string,
     onChange: PropTypes.func.isRequired,
-}
+};
 
 InputField.defaultProps = {
     value: '',

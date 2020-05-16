@@ -6,6 +6,9 @@
   --textColor: #f2f2f2;
   --fontSizeHeader: 18px;
   --linkHover: #82dd45;
+  --buttonBackgroundColor:#252c38;
+  --buttonBackgroundColorHover: #437024;
+  --headerColor: #282c34;
 }
 .App {
   width:  65vw;
@@ -35,7 +38,7 @@ a:hover {
 
 
 .header {
-  background-color: #282c34;
+  background-color: var(--headerColor);
   height: 7vh;
   display: flex;
   flex-direction: row;
@@ -77,6 +80,7 @@ input {
   border-radius: 10px;
   padding: 0.5vw;
   width: 50vw;
+  color: #f2f2f2;
 }
 
 label {
@@ -85,4 +89,52 @@ label {
   padding-right: 2vh;
   text-align: left;
   width: 10vw;
+}
+
+button {
+  width:5vw;
+  height:2vw;
+  background-color: var(--buttonBackgroundColor);
+  color: #f2f2f2;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;  
+  margin-bottom:1vh;
+}
+
+button:hover {
+  background-color: var(--buttonBackgroundColorHover);
+  color: #f2f2f2;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 2px;
+
+}
+
+
+.rightbutton {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.titlebar {
+  background-color: var(--headerColor);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 2vh;
+  margin-bottom: 3vh;
+  margin-top: 2vh;
+}
+
+.titlebasic {
+  background-color: var(--headerColor);
+  border-radius: 10px;
+  padding: 2vh;
+  margin-bottom: 3vh;
 }
