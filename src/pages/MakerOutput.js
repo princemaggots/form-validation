@@ -43,8 +43,8 @@ class MakerOutput extends React.Component {
 
     render() {
         const charData = this.props;
-        const basics = get(charData, 'Basic', []);
-        const additions = get(charData, 'Additions', []);
+        const basics = get(charData, 'Basics', []);
+        const additions = get(charData, 'Addition', []);
 
 
         return (
@@ -62,10 +62,10 @@ class MakerOutput extends React.Component {
           <br />
 
           <h2 className="section">Additional Info</h2>
-          {additions.map((additions) => (
-                        <dl key="additions">
+          {additions.map((addition) => (
+                        <dl key="addition">
                           <h4>Basic</h4>
-                          <AdditionalCharInfo {...additions} />
+                          <AdditionalCharInfo {...addition} />
                         </dl>
           ))}
 
