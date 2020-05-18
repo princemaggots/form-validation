@@ -4,7 +4,7 @@ import { useCallback, useMemo } from 'react';
 const useUpdateArray = (list, name, onUpdate, ) => [
   useCallback(() => {
     onUpdate(name, [...list || {}]);
-  }, [onUpdate, list]),
+  }, [onUpdate, name, list]),
   useMemo(
     () =>
       list.map((item, i) => (field, value) =>
@@ -17,17 +17,19 @@ const useUpdateArray = (list, name, onUpdate, ) => [
           ...list.slice(i + 1),
         ]),
       ),
-    [list, onUpdate],
+    [onUpdate, name, list],
   ),
   useMemo(() => list.map((_, i) => () => onUpdate(name, [...list.slice(0, i), ...list.slice(i + 1)])), [
-    list,
+    list, 
+    name,
     onUpdate,
+   
   ]),
   useCallback(
     item => {
       onUpdate(name, [...list, item ||  {}]);
     },
-    [onUpdate, list],
+    [onUpdate, name, list],
   ),
 ];
 

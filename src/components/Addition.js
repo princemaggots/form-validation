@@ -32,7 +32,7 @@ const Addition = ({ data, onUpdate }) => {
     const [mbtiValid, validateMBTI] = useValidate(mbtiValidator);
     const callbackEnnegram = useUpdated('Ennegram', onUpdate);
     const [ennegramValid, validateEnnegram] = useValidate(nameValidator);
-    const callbackMoralAlignment = useUpdated('Description', onUpdate);
+    const callbackMoralAlignment = useUpdated('MoralAlignment', onUpdate);
     const [moralAlignmentValid, validateMoralAlignment] = useValidate(nameValidator);
 
 

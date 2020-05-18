@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
 
 const InputField = ({ maxLength, placeholder, label, value, onChange, type, onBlur = () => {} }) => {
-    const id = useMemo(() => uuid());
+    const id = useMemo(() => uuid(), []);
     return (
         <div>
             <label htmlFor={id}>{label}</label>

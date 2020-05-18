@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
 
 const InputField = ({ label, selected, dropdownMode, minDate, maxDate, onChange, onBlur = () => {} }) => {
-  const id = useMemo(() => uuid());
+    const id = useMemo(() => uuid(), []);
   return (
     <div>
       <label htmlFor={id}>{label}</label>

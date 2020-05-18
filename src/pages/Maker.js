@@ -6,8 +6,8 @@ import Basic from '../components/Basic.js';
 import useUpdatedArray from '../hooks/useUpdatedArray';
 
 const Maker = ({ data, onNext, onUpdate }) => {
-  const { Basic: basics = [{}] } = data;
-  const { Addition: additions = [{}] } = data;
+  const { Basics: basics = [{}] } = data;
+  const { Additions: additions = [{}] } = data;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

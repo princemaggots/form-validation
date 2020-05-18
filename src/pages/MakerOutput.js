@@ -2,40 +2,81 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
   
-const BasicCharInfo = ({ Name, Fandom, DOB }) => (
-        <Fragment>
-            <div className="checker">
-                <dt>Name</dt>
-                <dd>{Name}</dd>
-                <dt> Fandom</dt>
-                <dd> {Fandom} </dd>
-                <dt>Birthdate</dt>
-                <dd>{DOB}</dd>
-            </div>
-        </Fragment>
-    );
+const BasicCharInfo = ({ Name, Fandom, Description }) => (
+    <Fragment>
+      <div className="spacebelow">
+        <dt>Character Name</dt>
+        <dd>{Name}</dd>
+        <dt>Fandom</dt>
+        <dd>{Fandom}</dd>
+        <dt>Description</dt>
+        <dd>{Description}</dd>
+      </div>
+    </Fragment>
+  );
+
+  const AdditionalCharInfo = ({ DOB, Likes, Dislikes, MBTI, Ennegram, MoralAlignment }) => (
+    <Fragment>
+      <div className="spacebelow">
+        <dt>Birthdate</dt>
+        <dd>{DOB}</dd>
+        <dt>Likes</dt>
+        <dd>{Likes}</dd>
+        <dt>Dislikes</dt>
+        <dd>{Dislikes}</dd>
+        <dt>MBTI</dt>
+        <dd>{MBTI}</dd>
+        <dt>Ennegram</dt>
+        <dd>{Ennegram}</dd>
+        <dt>MoralAlignment</dt>
+        <dd>{MoralAlignment}</dd>
+      </div>
+    </Fragment>
+  );
 
 class MakerOutput extends React.Component {
+
+    onPrevious = () => {
+        const { onPrevious } = this.props;
+        return onPrevious();
+      };
+
     render() {
         const charData = this.props;
-        const charmaker = get(charData, 'Maker', []);
+        const basics = get(charData, 'Basic', []);
+        const additions = get(charData, 'Additions', []);
+
 
         return (
-            <div className="content">
+            <div className="App">
 
-                <div className="showcase">
-                    <h2 className="char">Character</h2>
-                    {charmaker.map(maker => (
-                        <dl key="maker">
-                            <BasicCharInfo {...maker} />
+                <div className="verify">
+          <h2 className="section">Basics</h2>
+          {basics.map(basic => (
+            <dl key="basic">
+              <h4>Basic</h4>
+              <BasicCharInfo {...basic} />
+            </dl>
+          ))}
+
+          <br />
+
+          <h2 className="section">Additional Info</h2>
+          {additions.map((additions) => (
+                        <dl key="additions">
+                          <h4>Basic</h4>
+                          <AdditionalCharInfo {...additions} />
                         </dl>
-                    ))}
-                </div>
+          ))}
+
+          <br />
+
 
                 <button type="button" onClick={this.onPrevious}>
                     Go Back
                 </button>
-             </div>    
+             </div>  
+             </div>  
         );
     }
 }
@@ -58,20 +99,32 @@ MakerOutput.propTypes = {
   BasicCharInfo.defaultProps = {
     Name: null,
     Fandom: null,
-    DOB: null,
+    Description: null,
   };
   
   BasicCharInfo.propTypes = {
     Name: PropTypes.string,
     Fandom: PropTypes.string,
-    DOB: PropTypes.string,
+    Description: PropTypes.string,
   };
   
   // Default values for props
-  BasicCharInfo.defaultProps = {
-    Name: null,
-    Fandom: null,
+  AdditionalCharInfo.defaultProps = {
     DOB: null,
+    Likes: null,
+    Dislikes: null,
+    MBTI: null,
+    Ennegram: null,
+    MoralAlignment: null,
+  };
+
+  AdditionalCharInfo.propTypes = {
+    DOB: PropTypes.string,
+    Likes: PropTypes.string,
+    Dislikes: PropTypes.string,
+    MBTI: PropTypes.string,
+    Ennegram: PropTypes.string,
+    MoralAlignment: PropTypes.string,
   };
   
 

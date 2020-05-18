@@ -59,13 +59,13 @@ class Form extends React.Component {
         }
       });
 
-         const state = {
-         charData,
-          currentPageIndex: currentPageIndex - 1,
-        };
-             this.setState(state);
-      }
-     }
+      const state = {
+        charData,
+        currentPageIndex: currentPageIndex - 1,
+      };
+      this.setState(state);
+    }
+  }
 
   // jump(pageIndex) {
   //   return () => {
